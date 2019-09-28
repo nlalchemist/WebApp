@@ -46,22 +46,16 @@ const mapStyles = {
   height: '100%',
 };
 
-export class MapContainer extends React.Component {
-  render() {
-    const { google } = this.props;
-
-    return (
-      <>
-        <GlobalStyle />
-        <Map
-          google={google}
-          zoom={14}
-          style={mapStyles}
-        />
-      </>
-    );
-  }
-}
+const MapContainer = ({ google }: { google: any }) => (
+  <>
+    <GlobalStyle />
+    <Map
+      google={google}
+      zoom={14}
+      style={mapStyles}
+    />
+  </>
+);
 
 export default GoogleApiWrapper({
   apiKey: googleMapAPI,
