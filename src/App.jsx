@@ -1,7 +1,9 @@
+// @flow
+
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
-import { googleMapAPI } from './utils/keys';
+
+import MapContainer from './containers/MapContainer';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -41,22 +43,11 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const mapStyles = {
-  width: '100%',
-  height: '100%',
-};
-
-const MapContainer = ({ google }: { google: any }) => (
+const App = () => (
   <>
     <GlobalStyle />
-    <Map
-      google={google}
-      zoom={14}
-      style={mapStyles}
-    />
+    <MapContainer />
   </>
 );
 
-export default GoogleApiWrapper({
-  apiKey: googleMapAPI,
-})(MapContainer);
+export default App;
