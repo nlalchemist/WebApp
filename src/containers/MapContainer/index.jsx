@@ -5,7 +5,7 @@ import {
   GoogleApiWrapper, InfoWindow, Marker,
 } from 'google-maps-react';
 
-import { googleMapAPI } from '../../utils/keys';
+import { googleMapAPI } from '../../assets/keys';
 
 import CurrentLocation from './CurrentLocation';
 
