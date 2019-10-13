@@ -31,7 +31,6 @@ type State = {
 }
 
 export default class CurrentLocation extends React.Component<Props, State> {
-
   constructor(props: Props) {
     super(props);
 

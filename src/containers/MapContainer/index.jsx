@@ -2,12 +2,12 @@
 
 import React from 'react';
 import {
-  GoogleApiWrapper, InfoWindow, Marker,
+  GoogleApiWrapper, InfoWindow, Marker, Map,
 } from 'google-maps-react';
 
 import { googleMapAPI } from '../../assets/keys';
 
-import CurrentLocation from './CurrentLocation';
+// import CurrentLocation from './CurrentLocation';
 
 type Props = {
   google: any,
@@ -30,7 +30,7 @@ class MapContainer extends React.Component<Props, State> {
     };
   }
 
-  onMarkerClick = (props, marker) => this.setState({
+  onMarkerClick = (props: Props, marker: object) => this.setState({
     showInfoWindow: true,
     activeMarker: marker,
     selectedPlace: props,
@@ -49,11 +49,13 @@ class MapContainer extends React.Component<Props, State> {
 
   render() {
     const { google } = this.props;
+
     const { activeMarker, showInfoWindow, selectedPlace: { name } } = this.state;
+
     return (
-      <CurrentLocation
+      <Map
         google={google}
-        centerAroundCurrentLocation
+        // centerAroundCurrentLocation
       >
         <Marker
           onClick={this.onMarkerClick}
@@ -68,7 +70,7 @@ class MapContainer extends React.Component<Props, State> {
             <h4>{name}</h4>
           </div>
         </InfoWindow>
-      </CurrentLocation>
+      </Map>
     );
   }
 }
