@@ -14,7 +14,7 @@ type Props = {
 };
 
 type State = {
-  showInfoWindow: Boolean,
+  showInfoWindow: boolean,
   activeMarker: object,
   selectedPlace: object,
 };

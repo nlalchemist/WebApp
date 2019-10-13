@@ -18,8 +18,9 @@ type Props = {
     lng: number,
   },
   centerAroundCurrentLocation?: boolean,
-  visible?: boolean,
+  // visible?: boolean,
   google: any,
+  children: any,
 }
 
 type State = {
@@ -30,7 +31,8 @@ type State = {
 }
 
 export default class CurrentLocation extends React.Component<Props, State> {
-  constructor(props) {
+
+  constructor(props: Props) {
     super(props);
 
     const {
@@ -74,7 +76,7 @@ export default class CurrentLocation extends React.Component<Props, State> {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps: Props, prevState: State) {
     const { google } = this.props;
 
     if (prevProps.google !== google) {
@@ -173,5 +175,5 @@ CurrentLocation.defaultProps = {
     lng: 4.899431,
   },
   centerAroundCurrentLocation: false,
-  visible: true,
+  // visible: true,
 };
