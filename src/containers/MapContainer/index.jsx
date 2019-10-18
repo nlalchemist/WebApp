@@ -50,7 +50,15 @@ class MapContainer extends React.Component<Props, State> {
   render() {
     const { google } = this.props;
 
-    const { activeMarker, showInfoWindow, selectedPlace: { name } } = this.state;
+    const {
+      activeMarker,
+      showInfoWindow,
+      selectedPlace: {
+        name,
+      },
+    } = this.state;
+
+    console.log(this.state);
 
     return (
       <Map

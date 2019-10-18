@@ -7,7 +7,8 @@
   "plugins": [
     "flowtype",
     "react",
-    "jest"
+    "jest",
+    "react-hooks"
   ],
   "env": {
     "browser": true,
