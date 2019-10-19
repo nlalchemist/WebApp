@@ -1,8 +1,9 @@
 // @flow
 
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
+import Menu from './containers/MenuContainer';
 import MapContainer from './containers/MapContainer';
 
 const GlobalStyle = createGlobalStyle`
@@ -33,20 +34,31 @@ const GlobalStyle = createGlobalStyle`
     bottom: 0;
     left: 0;
     right: 0;
-
-    & > div {
-      margin: 1rem;
-      position: relative;
-      height: calc(100% - 2rem);
-      width: calc(100% - 2rem);
-    }
   }
+`;
+
+const AppDiv = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+`;
+
+const StyledMap = styled.div`
+  margin: 1rem;
+  position: relative;
+  height: calc(100% - 2rem);
+  width: calc(100% - 2rem);
 `;
 
 const App = () => (
   <>
     <GlobalStyle />
-    <MapContainer />
+    <AppDiv>
+      <Menu />
+      <StyledMap>
+        <MapContainer />
+      </StyledMap>
+    </AppDiv>
   </>
 );
 

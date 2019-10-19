@@ -16,6 +16,14 @@ function MapContainer({ google }) {
     selectedPlace: {},
   });
 
+  const {
+    activeMarker,
+    showInfoWindow,
+    selectedPlace: {
+      name,
+    } = {},
+  } = state;
+
   const onMarkerClick = (props: Props, marker: object) => {
     setState({
       showInfoWindow: true,
@@ -25,24 +33,14 @@ function MapContainer({ google }) {
   };
 
   const onClose = () => {
-    const { showInfoWindow } = state;
-
     if (showInfoWindow) {
       setState({
+        ...state,
         showInfoWindow: false,
         activeMarker: null,
-        selectedPlace: {},
       });
     }
   };
-
-  const {
-    activeMarker,
-    showInfoWindow,
-    selectedPlace: {
-      name,
-    },
-  } = state;
 
   return (
     <Map
